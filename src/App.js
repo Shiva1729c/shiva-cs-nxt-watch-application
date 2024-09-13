@@ -1,7 +1,13 @@
 import './App.css'
-import Login from './components/Login'
+import LoginForm from './components/LoginForm'
 
 // Replace your code here
-const App = () => <Login />
+const App = () => (
+  <div className="app-container">
+    <div className="responsive-container">
+      <LoginForm />
+    </div>
+  </div>
+)
 
 export default App

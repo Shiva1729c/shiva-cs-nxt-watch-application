@@ -16,11 +16,13 @@ body {
   justify-content: center;
   min-height: 100vh;
   background-color: #f9f9f9;
+  align-items: center;
 }
 
 .responsive-container {
   width: 90%;
   display: flex;
   justify-content: center;
+
   /* border: 1px solid red; */
 }

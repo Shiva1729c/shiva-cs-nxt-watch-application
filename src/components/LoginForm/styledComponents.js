@@ -1,6 +1,14 @@
 import styled from 'styled-components'
 
 export const LoginContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #f9f9f9;
+  align-items: center;
+`
+
+export const FormContainer = styled.div`
   background-color: #f8fafc;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   width: 300px;
@@ -9,10 +17,12 @@ export const LoginContainer = styled.div`
   align-items: center;
   margin-top: 50px;
   margin-bottom: 40px;
+  height: 420px;
   border-radius: 10px;
   padding: 50px;
   @media screen and (min-width: 768px) {
     width: 400px;
+    max-height: 100%;
   }
 `
 
@@ -21,7 +31,7 @@ export const ImageElement = styled.img`
   height: 30px;
   margin-bottom: 50px;
 `
-export const FormContainer = styled.form`
+export const Form = styled.form`
   width: 100%;
 `
 
@@ -54,4 +64,8 @@ export const ButtonElement = styled.button`
   border: none;
   outline: none;
   cursor: pointer;
+`
+export const ErrorMsg = styled.p`
+  color: #ff0b37;
+  font-family: 'Roboto';
 `

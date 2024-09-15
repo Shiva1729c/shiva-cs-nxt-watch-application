@@ -3,14 +3,16 @@ import {IoIosClose} from 'react-icons/io'
 import {BsSearch} from 'react-icons/bs'
 
 export const HomeContainer = styled.div`
-  background-color: green;
+  background-color: #f9f9f9;
   min-height: 100vh;
+  display: flex;
 `
 export const HomeBannerContainer = styled.div`
   background-image: url('https://assets.ccbp.in/frontend/react-js/nxt-watch-banner-bg.png');
   background-size: cover;
   padding: 20px;
   display: flex;
+  justify-content: space-between;
 `
 
 export const WebsiteBannerLogo = styled.img`
@@ -51,15 +53,13 @@ export const CloseIcon = styled(IoIosClose)`
 export const BannerContent = styled.div``
 export const VideoCardContainer = styled.div`
   background-color: #ebebeb;
-  //   display: flex;
-  //   flex-direction: column;
-  //   justify-content: center;
-  //   align-items: center;
+  padding-left: 20px;
+  padding-top: 20px;
 `
 export const SearchInputContainer = styled.div`
   border: 1px solid #616e7c;
   width: 350px;
-  height: 50px;
+  height: 40px;
   display: flex;
   @media screen and (min-width: 768px) {
     width: 450px;
@@ -93,5 +93,16 @@ export const VideoImageContainer = styled.ul`
   list-style-type: none;
   padding-left: 0px;
   flex-wrap: wrap;
-  border: 1px solid red;
+`
+export const HomeContent = styled.div``
+
+export const SideBarHomeContainer = styled.div`
+  display: none;
+  background-color: #ffffff;
+  min-height: 100vh;
+  min-width: 250px;
+
+  @media screen and (min-width: 768px) {
+    display: block;
+  }
 `

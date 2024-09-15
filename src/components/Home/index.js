@@ -2,6 +2,7 @@ import {Component} from 'react'
 import Cookies from 'js-cookie'
 import Header from '../Header'
 import VideoCard from '../VideoCard'
+import SideBar from '../SideBar'
 import {
   HomeContainer,
   HomeBannerContainer,
@@ -17,6 +18,8 @@ import {
   SearchIcon,
   IconContainer,
   VideoImageContainer,
+  HomeContent,
+  SideBarHomeContainer,
 } from './styledComponents'
 
 class Home extends Component {
@@ -104,11 +107,16 @@ class Home extends Component {
       <>
         <Header />
         <HomeContainer>
-          {!closeBanner && this.renderHomeBanner()}
-          <VideoCardContainer>
-            {this.renderInputSearch()}
-            {this.renderVideoCard()}
-          </VideoCardContainer>
+          <SideBarHomeContainer>
+            <SideBar />
+          </SideBarHomeContainer>
+          <HomeContent>
+            {!closeBanner && this.renderHomeBanner()}
+            <VideoCardContainer>
+              {this.renderInputSearch()}
+              {this.renderVideoCard()}
+            </VideoCardContainer>
+          </HomeContent>
         </HomeContainer>
       </>
     )

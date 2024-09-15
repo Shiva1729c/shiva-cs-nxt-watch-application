@@ -51,18 +51,18 @@ export const ImageElement = styled.img`
   width: 130px;
 
   @media screen and (min-width: 576px) {
-    width: 150px;
-     height: 40px;
+    width: 110px;
+     height: 36px;
   }
   }
 
   @media screen and (min-width: 768px) {
-    width: 160px;
-    height: 40px;
+    width: 140px;
+    
   }
   @media screen and (min-width: 992px) {
-    width: 200px;
-    height: 70px;
+    // width: 200px;
+    // height: 70px;
   }
 `
 
@@ -73,7 +73,7 @@ export const ProfileImage = styled.img`
 export const LogoutButton = styled.button`
   width: 120px;
   height: 40px;
-  font-size: 20px;
+  font-size: 15px;
   font-family: 'Roboto';
   background-color: transparent;
   color: #3b82f6;
@@ -84,8 +84,8 @@ export const LogoutButton = styled.button`
   font-weight: 500;
 
   @media screen and (min-width: 1200px) {
-    height: 60px;
-    font-size: 30px;
+    height: 40px;
+    font-size: 20px;
     width: 150px;
   }
 `

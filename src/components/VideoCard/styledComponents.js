@@ -3,6 +3,7 @@ import styled from 'styled-components'
 export const VideoCardItem = styled.li`
   width: 350px;
   margin: 10px;
+  margin-left: 0px;
 `
 
 export const ThumbnailVideoImage = styled.img`

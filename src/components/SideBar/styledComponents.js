@@ -5,10 +5,11 @@ import {SiYoutubegaming} from 'react-icons/si'
 import {BiListPlus} from 'react-icons/bi'
 
 export const SideBarContainer = styled.div`
-  min-height: 100vh;
+  min-height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  //   border: 1px solid red;
 `
 export const SideMenu = styled.ul`
   list-style-type: none;

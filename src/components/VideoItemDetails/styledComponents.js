@@ -9,4 +9,11 @@ export const SideBarVideoItemDetailsContainer = styled.div`
 
 export const VideoItemDetailsContainer = styled.div`
   display: flex;
+  min-height: 100vh;
+`
+
+export const VideoDetailsCardContainer = styled.div`
+  width: 100%;
+
+  padding: 20px;
 `

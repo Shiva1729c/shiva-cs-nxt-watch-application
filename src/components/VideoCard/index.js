@@ -1,3 +1,4 @@
+import {formatDistanceToNow} from 'date-fns'
 import {
   VideoCardItem,
   ThumbnailVideoImage,
@@ -23,6 +24,10 @@ const VideoCard = props => {
     channelProfileImageUrl,
   } = VideoCardDetails
 
+  const parsedDate = new Date(publishedAt)
+
+  const publishedTime = formatDistanceToNow(parsedDate)
+
   return (
     <VideoLink to={`/videos/${id}`}>
       <VideoCardItem>
@@ -36,7 +41,7 @@ const VideoCard = props => {
 
           <ProfileViewsContainer>
             <ViewsItem views>{viewCount}</ViewsItem>
-            <ViewsItem>{publishedAt}</ViewsItem>
+            <ViewsItem>{publishedTime} ago</ViewsItem>
           </ProfileViewsContainer>
         </ChannelContainer>
       </VideoCardItem>

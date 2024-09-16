@@ -2,11 +2,13 @@ import {Component} from 'react'
 import Cookies from 'js-cookie'
 import Header from '../Header'
 import SideBar from '../SideBar'
+
 import VideoItemDetailsCard from '../VideoItemDetailsCard'
 
 import {
   VideoItemDetailsContainer,
   SideBarVideoItemDetailsContainer,
+  VideoDetailsCardContainer,
 } from './styledComponents'
 
 class VideoItemDetails extends Component {
@@ -61,7 +63,9 @@ class VideoItemDetails extends Component {
           <SideBarVideoItemDetailsContainer>
             <SideBar />
           </SideBarVideoItemDetailsContainer>
-          <VideoItemDetailsCard VideoItemCardDetails={videoItemDetailsData} />
+          <VideoDetailsCardContainer>
+            <VideoItemDetailsCard VideoItemCardDetails={videoItemDetailsData} />
+          </VideoDetailsCardContainer>
         </VideoItemDetailsContainer>
       </>
     )

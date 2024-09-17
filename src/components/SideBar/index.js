@@ -12,27 +12,36 @@ import {
   MediaLogosContainer,
   SocialMediaImage,
   ContactInfoDescription,
+  PageLink,
 } from './styledComponents'
 
 const SideBar = () => {
   const renderSideMenu = () => (
     <SideMenu>
-      <SideBarItem>
-        <HomeIcon />
-        <MenuText>Home</MenuText>
-      </SideBarItem>
-      <SideBarItem>
-        <TrendingIcon />
-        <MenuText>Trending</MenuText>
-      </SideBarItem>
-      <SideBarItem>
-        <GamingIcon />
-        <MenuText>Gaming</MenuText>
-      </SideBarItem>
-      <SideBarItem>
-        <SavedVideosIcon />
-        <MenuText>Saved videos</MenuText>
-      </SideBarItem>
+      <PageLink to="/">
+        <SideBarItem>
+          <HomeIcon />
+          <MenuText>Home</MenuText>
+        </SideBarItem>
+      </PageLink>
+      <PageLink to="/trending">
+        <SideBarItem>
+          <TrendingIcon />
+          <MenuText>Trending</MenuText>
+        </SideBarItem>
+      </PageLink>
+      <PageLink to="/gaming">
+        <SideBarItem>
+          <GamingIcon />
+          <MenuText>Gaming</MenuText>
+        </SideBarItem>
+      </PageLink>
+      <PageLink to="/saved-videos">
+        <SideBarItem>
+          <SavedVideosIcon />
+          <MenuText>Saved videos</MenuText>
+        </SideBarItem>
+      </PageLink>
     </SideMenu>
   )
 

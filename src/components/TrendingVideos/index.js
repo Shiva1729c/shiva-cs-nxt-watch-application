@@ -63,7 +63,7 @@ class TrendingVideos extends Component {
     return (
       <>
         <Header />
-        <TrendingContainer>
+        <TrendingContainer data-testid="trending">
           <SideBarTrendingContainer>
             <SideBar />
           </SideBarTrendingContainer>

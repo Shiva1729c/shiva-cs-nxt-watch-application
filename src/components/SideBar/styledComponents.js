@@ -1,8 +1,13 @@
+import {Link} from 'react-router-dom'
 import styled from 'styled-components'
 import {TiHome} from 'react-icons/ti'
 import {BsFire} from 'react-icons/bs'
 import {SiYoutubegaming} from 'react-icons/si'
 import {BiListPlus} from 'react-icons/bi'
+
+export const PageLink = styled(Link)`
+  text-decoration: none;
+`
 
 export const SideBarContainer = styled.div`
   min-height: 100%;
@@ -25,21 +30,25 @@ export const HomeIcon = styled(TiHome)`
   margin-right: 15px;
   margin-left: 10px;
   width: 20px;
+  color: #383838;
 `
 export const TrendingIcon = styled(BsFire)`
   margin-right: 15px;
   margin-left: 10px;
   width: 20px;
+  color: #383838;
 `
 export const GamingIcon = styled(SiYoutubegaming)`
   margin-right: 15px;
   margin-left: 10px;
   width: 20px;
+  color: #383838;
 `
 export const SavedVideosIcon = styled(BiListPlus)`
   margin-right: 15px;
   margin-left: 10px;
   width: 20px;
+  color: #383838;
 `
 export const MenuText = styled.p`
   font-family: 'Roboto';

@@ -65,7 +65,7 @@ class GamingVideos extends Component {
     return (
       <>
         <Header />
-        <GamingContainer>
+        <GamingContainer data-testid="gaming">
           <SideBarGamingContainer>
             <SideBar />
           </SideBarGamingContainer>

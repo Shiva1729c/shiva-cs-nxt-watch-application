@@ -51,6 +51,7 @@ export const SideBarGamingContainer = styled.div`
 export const GamingContainer = styled.div`
   display: flex;
   min-height: 100vh;
+  color: #f9f9f9;
 `
 export const GamingVideoImageContainer = styled.ul`
   display: flex;

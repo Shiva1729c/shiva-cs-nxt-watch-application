@@ -59,7 +59,7 @@ class VideoItemDetails extends Component {
     return (
       <>
         <Header />
-        <VideoItemDetailsContainer>
+        <VideoItemDetailsContainer data-testid="videoItemDetails">
           <SideBarVideoItemDetailsContainer>
             <SideBar />
           </SideBarVideoItemDetailsContainer>

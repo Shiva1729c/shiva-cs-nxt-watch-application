@@ -89,3 +89,41 @@ export const LogoutButton = styled.button`
     width: 150px;
   }
 `
+
+export const PopupContentContainer = styled.div`
+  background-color: #ffffff;
+  width: 320px;
+  height: 160px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: Column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 20px;
+`
+export const PopupButtonContainer = styled.div``
+
+export const PopupInstruction = styled.h1`
+  font-family: 'Roboto';
+  color: #00306e;
+  font-size: 16px;
+  font-weight: 400;
+  margin-bottom: 20px;
+`
+
+export const PopupConformButton = styled.button`
+  width: 100px;
+  height: 40px;
+  font-size: 15px;
+  font-family: 'Roboto';
+  background-color: ${props => (props.outline ? 'transparent' : '#3b82f6')};
+  color: ${props => (props.outline ? '#616e7c' : '#ffffff')};
+  border: 1px solid ${props => (props.outline ? '#606060' : '#3b82f6')};
+  border-radius: 2px;
+  outline: none;
+  cursor: pointer;
+  font-weight: 500;
+`
+export const PopupCancelButton = styled(PopupConformButton)`
+  margin-right: 10px;
+`

@@ -5,11 +5,34 @@ import {
   Title,
   VideoViewsAndTime,
   ViewsItem,
+  ThumbsUpIcon,
+  ThumbsDownIcon,
+  SavePlusIcon,
+  VideoDetailsContainer,
+  InteractionButtonsContainer,
+  InteractionButton,
+  InteractionButtonText,
+  ChannelDetailsContainer,
+  ChannelLogo,
+  ChannelTextContainer,
+  ChannelName,
+  ChannelSubscribers,
+  ChannelDescription,
+  VideoPlayer,
 } from './styledComponents'
 
 const VideoItemDetailsCard = props => {
   const {VideoItemCardDetails} = props
-  const {videoUrl, title, viewCount, publishedAt} = VideoItemCardDetails
+  const {
+    videoUrl,
+    title,
+    viewCount,
+    publishedAt,
+    channelName,
+    channelProfileImageUrl,
+    subscriberCount,
+    description,
+  } = VideoItemCardDetails
 
   // Check if publishedAt is valid before parsing
   const parsedDate = new Date(publishedAt)
@@ -21,12 +44,39 @@ const VideoItemDetailsCard = props => {
 
   return (
     <VideoItem>
-      <ReactPlayer url={videoUrl} controls width="100%" height="100%" />
+      <VideoPlayer>
+        <ReactPlayer url={videoUrl} controls width="100%" height="100%" />
+      </VideoPlayer>
       <Title>{title}</Title>
-      <VideoViewsAndTime>
-        <ViewsItem views>{viewCount}</ViewsItem>
-        <ViewsItem>{publishedTime} ago</ViewsItem>
-      </VideoViewsAndTime>
+      <VideoDetailsContainer>
+        <VideoViewsAndTime>
+          <ViewsItem views>{viewCount} views</ViewsItem>
+          <ViewsItem>{publishedTime} ago</ViewsItem>
+        </VideoViewsAndTime>
+        <InteractionButtonsContainer>
+          <InteractionButton type="button">
+            <ThumbsUpIcon />
+            <InteractionButtonText>Like</InteractionButtonText>
+          </InteractionButton>
+          <InteractionButton type="button">
+            <ThumbsDownIcon />
+            <InteractionButtonText>Dislike</InteractionButtonText>
+          </InteractionButton>
+          <InteractionButton type="button">
+            <SavePlusIcon />
+            <InteractionButtonText>Save</InteractionButtonText>
+          </InteractionButton>
+        </InteractionButtonsContainer>
+      </VideoDetailsContainer>
+      <hr />
+      <ChannelDetailsContainer>
+        <ChannelLogo src={channelProfileImageUrl} alt="channel logo" />
+        <ChannelTextContainer>
+          <ChannelName>{channelName}</ChannelName>
+          <ChannelSubscribers>{subscriberCount} subscribers</ChannelSubscribers>
+        </ChannelTextContainer>
+      </ChannelDetailsContainer>
+      <ChannelDescription>{description}</ChannelDescription>
     </VideoItem>
   )
 }

@@ -1,4 +1,5 @@
 import {Component} from 'react'
+import Loader from 'react-loader-spinner'
 import Cookies from 'js-cookie'
 import Header from '../Header'
 import SideBar from '../SideBar'
@@ -9,11 +10,24 @@ import {
   VideoItemDetailsContainer,
   SideBarVideoItemDetailsContainer,
   VideoDetailsCardContainer,
+  FailureContentContainer,
+  FailureImage,
+  FailureHeading,
+  FailureDescription,
+  FailureRetryButton,
 } from './styledComponents'
+
+const apiConstants = {
+  initial: 'INITIAL',
+  success: 'SUCCESS',
+  in_Progress: 'IN_PROGRESS',
+  failure: 'FAILURE',
+}
 
 class VideoItemDetails extends Component {
   state = {
     videoItemDetailsData: [],
+    apiStatus: apiConstants.initial,
   }
 
   componentDidMount() {
@@ -21,6 +35,7 @@ class VideoItemDetails extends Component {
   }
 
   getVideoItemDetails = async () => {
+    this.setState({apiStatus: apiConstants.in_Progress})
     const {match} = this.props
     const {params} = match
     const {id} = params
@@ -50,12 +65,57 @@ class VideoItemDetails extends Component {
           fetchedData.video_details.channel.profile_image_url,
         subscriberCount: fetchedData.video_details.channel.subscriber_count,
       }
-      this.setState({videoItemDetailsData: updatedData})
+      this.setState({
+        videoItemDetailsData: updatedData,
+        apiStatus: apiConstants.success,
+      })
+    } else {
+      this.setState({apiStatus: apiConstants.failure})
+    }
+  }
+
+  renderVideoItemDetailsCard = () => {
+    const {videoItemDetailsData} = this.state
+    return <VideoItemDetailsCard VideoItemCardDetails={videoItemDetailsData} />
+  }
+
+  renderLoader = () => (
+    <div className="loader-container" data-testid="loader">
+      <Loader type="ThreeDots" color="#3b82f6" height="50" width="50" />
+    </div>
+  )
+
+  renderFailureView = () => (
+    <FailureContentContainer>
+      <FailureImage
+        src="https://assets.ccbp.in/frontend/react-js/nxt-watch-failure-view-light-theme-img.png"
+        alt="failure view"
+      />
+      <FailureHeading>Oops! Something Went Wrong</FailureHeading>
+      <FailureDescription>
+        We are having some trouble to complete your request. Please try again.
+      </FailureDescription>
+      <FailureRetryButton type="button" onClick={this.getVideos}>
+        Retry
+      </FailureRetryButton>
+    </FailureContentContainer>
+  )
+
+  renderApiStatus = () => {
+    const {apiStatus} = this.state
+    switch (apiStatus) {
+      case 'SUCCESS':
+        return this.renderVideoItemDetailsCard()
+      case 'IN_PROGRESS':
+        return this.renderLoader()
+      case 'FAILURE':
+        return this.renderFailureView()
+      default:
+        return null
     }
   }
 
   render() {
-    const {videoItemDetailsData} = this.state
     return (
       <>
         <Header />
@@ -64,7 +124,7 @@ class VideoItemDetails extends Component {
             <SideBar />
           </SideBarVideoItemDetailsContainer>
           <VideoDetailsCardContainer>
-            <VideoItemDetailsCard VideoItemCardDetails={videoItemDetailsData} />
+            {this.renderApiStatus()}
           </VideoDetailsCardContainer>
         </VideoItemDetailsContainer>
       </>

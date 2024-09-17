@@ -82,7 +82,7 @@ class Home extends Component {
   }
 
   renderHomeBanner = () => (
-    <HomeBannerContainer>
+    <HomeBannerContainer datatestid="banner">
       <BannerContent>
         <WebsiteBannerLogo
           src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png"

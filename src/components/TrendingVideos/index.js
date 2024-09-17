@@ -1,4 +1,5 @@
 import {Component} from 'react'
+import Loader from 'react-loader-spinner'
 import Cookies from 'js-cookie'
 import Header from '../Header'
 import SideBar from '../SideBar'
@@ -12,11 +13,24 @@ import {
   TrendingContainer,
   TrendingVideoImageContainer,
   TrendingVideoContentContainer,
+  FailureContentContainer,
+  FailureImage,
+  FailureHeading,
+  FailureDescription,
+  FailureRetryButton,
 } from './styledComponents'
+
+const apiConstants = {
+  initial: 'INITIAL',
+  success: 'SUCCESS',
+  in_Progress: 'IN_PROGRESS',
+  failure: 'FAILURE',
+}
 
 class TrendingVideos extends Component {
   state = {
     TrendingVideosData: [],
+    apiStatus: apiConstants.initial,
   }
 
   componentDidMount() {
@@ -24,6 +38,7 @@ class TrendingVideos extends Component {
   }
 
   getTrendingVideos = async () => {
+    this.setState({apiStatus: apiConstants.in_Progress})
     const jwtToken = Cookies.get('jwt_token')
     const ApiUrl = 'https://apis.ccbp.in/videos/trending'
     const options = {
@@ -44,7 +59,12 @@ class TrendingVideos extends Component {
         channelName: eachVideo.channel.name,
         channelProfileImageUrl: eachVideo.channel.profile_image_url,
       }))
-      this.setState({TrendingVideosData: updatedData})
+      this.setState({
+        TrendingVideosData: updatedData,
+        apiStatus: apiConstants.success,
+      })
+    } else {
+      this.setState({apiStatus: apiConstants.failure})
     }
   }
 
@@ -57,6 +77,42 @@ class TrendingVideos extends Component {
         ))}
       </TrendingVideoImageContainer>
     )
+  }
+
+  renderLoader = () => (
+    <div className="loader-container" data-testid="loader">
+      <Loader type="ThreeDots" color="#3b82f6" height="50" width="50" />
+    </div>
+  )
+
+  renderFailureView = () => (
+    <FailureContentContainer>
+      <FailureImage
+        src="https://assets.ccbp.in/frontend/react-js/nxt-watch-failure-view-light-theme-img.png"
+        alt="failure view"
+      />
+      <FailureHeading>Oops! Something Went Wrong</FailureHeading>
+      <FailureDescription>
+        We are having some trouble to complete your request. Please try again.
+      </FailureDescription>
+      <FailureRetryButton type="button" onClick={this.getVideos}>
+        Retry
+      </FailureRetryButton>
+    </FailureContentContainer>
+  )
+
+  renderApiStatus = () => {
+    const {apiStatus} = this.state
+    switch (apiStatus) {
+      case 'SUCCESS':
+        return this.renderVideoCard()
+      case 'IN_PROGRESS':
+        return this.renderLoader()
+      case 'FAILURE':
+        return this.renderFailureView()
+      default:
+        return null
+    }
   }
 
   render() {
@@ -72,7 +128,7 @@ class TrendingVideos extends Component {
               <TrendingIcon />
               <TrendingText>Trending</TrendingText>
             </TrendingHeaderContainer>
-            {this.renderVideoCard()}
+            {this.renderApiStatus()}
           </TrendingVideoContentContainer>
         </TrendingContainer>
       </>

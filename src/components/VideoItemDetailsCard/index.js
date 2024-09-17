@@ -42,6 +42,9 @@ const VideoItemDetailsCard = props => {
     ? formatDistanceToNow(parsedDate)
     : 'Invalid date'
 
+  const onClickLikeButton = () => {}
+  const onClickDislikeButton = () => {}
+
   return (
     <VideoItem>
       <VideoPlayer>
@@ -54,11 +57,11 @@ const VideoItemDetailsCard = props => {
           <ViewsItem>{publishedTime} ago</ViewsItem>
         </VideoViewsAndTime>
         <InteractionButtonsContainer>
-          <InteractionButton type="button">
+          <InteractionButton type="button" onClick={onClickLikeButton}>
             <ThumbsUpIcon />
             <InteractionButtonText>Like</InteractionButtonText>
           </InteractionButton>
-          <InteractionButton type="button">
+          <InteractionButton type="button" onClick={onClickDislikeButton}>
             <ThumbsDownIcon />
             <InteractionButtonText>Dislike</InteractionButtonText>
           </InteractionButton>

@@ -65,3 +65,41 @@ export const TrendingVideoContentContainer = styled.div`
   flex-direction: column;
   //   border: 1px solid red;
 `
+export const FailureContentContainer = styled.div`
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  //   justify-content: center;
+  align-items: center;
+`
+export const FailureImage = styled.img`
+  width: 40%;
+`
+export const FailureHeading = styled.h1`
+  font-family: 'Roboto';
+  font-size: 20px;
+  color: #212121;
+`
+export const FailureDescription = styled.p`
+  font-family: 'Roboto';
+  font-size: 16px;
+  color: #616e7c;
+  text-align: center;
+`
+export const FailureRetryButton = styled.button`
+  color: #ffffff;
+  background-color: #4f46e5;
+  border: none;
+  outline: none;
+  font-size: 12px;
+  font-weight: 600;
+  padding-left: 10px;
+  padding-right: 10px;
+  width: 100px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-radius: 5px;
+  height: 40px;
+  margin-bottom: 10px;
+  cursor: pointer;
+`

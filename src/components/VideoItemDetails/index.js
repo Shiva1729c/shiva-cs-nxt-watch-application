@@ -28,10 +28,26 @@ class VideoItemDetails extends Component {
   state = {
     videoItemDetailsData: [],
     apiStatus: apiConstants.initial,
+    isLiked: false,
+    isDisliked: false,
   }
 
   componentDidMount() {
     this.getVideoItemDetails()
+  }
+
+  clickingLikeButton = () => {
+    this.setState(prevState => ({
+      isLiked: !prevState.isLiked,
+      isDisliked: prevState.isLiked ? false : prevState.isDisliked,
+    }))
+  }
+
+  clickingDisLikeButton = () => {
+    this.setState(prevState => ({
+      isDisliked: !prevState.isDisliked,
+      isLiked: prevState.isDisliked ? false : prevState.isLiked,
+    }))
   }
 
   getVideoItemDetails = async () => {
@@ -75,8 +91,16 @@ class VideoItemDetails extends Component {
   }
 
   renderVideoItemDetailsCard = () => {
-    const {videoItemDetailsData} = this.state
-    return <VideoItemDetailsCard VideoItemCardDetails={videoItemDetailsData} />
+    const {videoItemDetailsData, isLiked, isDisliked} = this.state
+    return (
+      <VideoItemDetailsCard
+        VideoItemCardDetails={videoItemDetailsData}
+        clickingLikeButton={this.clickingLikeButton}
+        clickingDisLikeButton={this.clickingDisLikeButton}
+        isLiked={isLiked}
+        isDisliked={isDisliked}
+      />
+    )
   }
 
   renderLoader = () => (

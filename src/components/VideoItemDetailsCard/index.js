@@ -20,9 +20,16 @@ import {
   ChannelDescription,
   VideoPlayer,
 } from './styledComponents'
+import './index.css'
 
 const VideoItemDetailsCard = props => {
-  const {VideoItemCardDetails} = props
+  const {
+    VideoItemCardDetails,
+    clickingLikeButton,
+    clickingDisLikeButton,
+    isLiked,
+    isDisliked,
+  } = props
   const {
     videoUrl,
     title,
@@ -42,8 +49,15 @@ const VideoItemDetailsCard = props => {
     ? formatDistanceToNow(parsedDate)
     : 'Invalid date'
 
-  const onClickLikeButton = () => {}
-  const onClickDislikeButton = () => {}
+  const likeBtnClass = isLiked ? 'active-like' : ''
+  const dislikeBtnClass = isDisliked ? 'active-dislike' : ''
+
+  const onClickLikeButton = () => {
+    clickingLikeButton()
+  }
+  const onClickDislikeButton = () => {
+    clickingDisLikeButton()
+  }
 
   return (
     <VideoItem>

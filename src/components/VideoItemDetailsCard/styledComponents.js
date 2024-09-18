@@ -6,13 +6,13 @@ export const ThumbsUpIcon = styled(LuThumbsUp)`
   width: 20px;
   height: 20px;
   margin-right: 5px;
-  color: #64748b;
+  //   color: #64748b;
 `
 export const ThumbsDownIcon = styled(LuThumbsDown)`
   width: 20px;
   height: 20px;
   margin-right: 5px;
-  color: #64748b;
+  //   color: #64748b;
 `
 export const SavePlusIcon = styled(BiListPlus)`
   width: 20px;
@@ -46,7 +46,7 @@ export const InteractionButtonText = styled.p`
   font-family: 'Roboto';
   font-size: 16px;
   font-weight: 500;
-  color: #64748b;
+  //   color: #64748b;
 `
 
 export const VideoPlayer = styled.div`

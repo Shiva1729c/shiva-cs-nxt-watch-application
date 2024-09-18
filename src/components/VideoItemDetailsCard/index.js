@@ -1,5 +1,7 @@
 import ReactPlayer from 'react-player'
 import {formatDistanceToNow} from 'date-fns'
+import ThemeAndSaveContext from '../../context/ThemeAndSaveContext'
+
 import {
   VideoItem,
   Title,
@@ -41,7 +43,6 @@ const VideoItemDetailsCard = props => {
     description,
   } = VideoItemCardDetails
 
-  // Check if publishedAt is valid before parsing
   const parsedDate = new Date(publishedAt)
   const isValidDate = parsedDate.getTime()
 
@@ -49,8 +50,8 @@ const VideoItemDetailsCard = props => {
     ? formatDistanceToNow(parsedDate)
     : 'Invalid date'
 
-  const likeBtnClass = isLiked ? 'active-like' : ''
-  const dislikeBtnClass = isDisliked ? 'active-dislike' : ''
+  const likeBtnClass = isLiked ? 'active-btn' : 'inactive-btn'
+  const dislikeBtnClass = isDisliked ? 'active-btn' : 'inactive-btn'
 
   const onClickLikeButton = () => {
     clickingLikeButton()
@@ -71,11 +72,19 @@ const VideoItemDetailsCard = props => {
           <ViewsItem>{publishedTime} ago</ViewsItem>
         </VideoViewsAndTime>
         <InteractionButtonsContainer>
-          <InteractionButton type="button" onClick={onClickLikeButton}>
+          <InteractionButton
+            type="button"
+            onClick={onClickLikeButton}
+            className={`${likeBtnClass}`}
+          >
             <ThumbsUpIcon />
             <InteractionButtonText>Like</InteractionButtonText>
           </InteractionButton>
-          <InteractionButton type="button" onClick={onClickDislikeButton}>
+          <InteractionButton
+            type="button"
+            onClick={onClickDislikeButton}
+            className={`${dislikeBtnClass}`}
+          >
             <ThumbsDownIcon />
             <InteractionButtonText>Dislike</InteractionButtonText>
           </InteractionButton>
@@ -96,6 +105,13 @@ const VideoItemDetailsCard = props => {
       <ChannelDescription>{description}</ChannelDescription>
     </VideoItem>
   )
+  //   <ThemeAndSaveContext.Consumer>
+  //       {
+  //           value=>{
+
+  //           }
+  //       }
+  //   </ThemeAndSaveContext.Consumer>
 }
 
 export default VideoItemDetailsCard

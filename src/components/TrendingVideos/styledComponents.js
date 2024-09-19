@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import {BsFire} from 'react-icons/bs'
+import {AiFillFire} from 'react-icons/ai'
 
 export const TrendingHeaderContainer = styled.div`
   background-color: #ebebeb;
@@ -15,7 +15,7 @@ export const TrendingHeaderContainer = styled.div`
   }
 `
 
-export const TrendingIcon = styled(BsFire)`
+export const TrendingIcon = styled(AiFillFire)`
   color: #ff0000;
   background-color: #cbd5e1;
   width: 50px;

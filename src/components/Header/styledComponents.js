@@ -67,7 +67,7 @@ export const ImageElement = styled.img`
 `
 
 export const ProfileImage = styled.img`
-  width: 4vw;
+  width: 3vw;
 `
 
 export const LogoutButton = styled.button`

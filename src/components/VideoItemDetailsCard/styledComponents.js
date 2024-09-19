@@ -1,14 +1,14 @@
 import styled from 'styled-components'
-import {LuThumbsUp, LuThumbsDown} from 'react-icons/lu'
+import {AiOutlineLike, AiOutlineDislike} from 'react-icons/ai'
 import {BiListPlus} from 'react-icons/bi'
 
-export const ThumbsUpIcon = styled(LuThumbsUp)`
+export const ThumbsUpIcon = styled(AiOutlineLike)`
   width: 20px;
   height: 20px;
   margin-right: 5px;
   //   color: #64748b;
 `
-export const ThumbsDownIcon = styled(LuThumbsDown)`
+export const ThumbsDownIcon = styled(AiOutlineDislike)`
   width: 20px;
   height: 20px;
   margin-right: 5px;

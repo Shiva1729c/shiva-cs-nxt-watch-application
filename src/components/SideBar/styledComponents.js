@@ -1,9 +1,8 @@
 import {Link} from 'react-router-dom'
 import styled from 'styled-components'
-import {TiHome} from 'react-icons/ti'
-import {BsFire} from 'react-icons/bs'
+import {AiFillHome, AiFillFire} from 'react-icons/ai'
 import {SiYoutubegaming} from 'react-icons/si'
-import {BiListPlus} from 'react-icons/bi'
+import {CgPlayListAdd} from 'react-icons/cg'
 
 export const PageLink = styled(Link)`
   text-decoration: none;
@@ -26,13 +25,13 @@ export const SideBarItem = styled.li`
   align-items: center;
 `
 
-export const HomeIcon = styled(TiHome)`
+export const HomeIcon = styled(AiFillHome)`
   margin-right: 15px;
   margin-left: 10px;
   width: 20px;
   color: #383838;
 `
-export const TrendingIcon = styled(BsFire)`
+export const TrendingIcon = styled(AiFillFire)`
   margin-right: 15px;
   margin-left: 10px;
   width: 20px;
@@ -44,7 +43,7 @@ export const GamingIcon = styled(SiYoutubegaming)`
   width: 20px;
   color: #383838;
 `
-export const SavedVideosIcon = styled(BiListPlus)`
+export const SavedVideosIcon = styled(CgPlayListAdd)`
   margin-right: 15px;
   margin-left: 10px;
   width: 20px;

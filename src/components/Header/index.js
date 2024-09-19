@@ -1,8 +1,7 @@
 import {withRouter} from 'react-router-dom'
 import Popup from 'reactjs-popup'
 import Cookies from 'js-cookie'
-import {FaMoon} from 'react-icons/fa'
-import {GiHamburgerMenu} from 'react-icons/gi'
+import {BsMoon, BsBrightnessHigh} from 'react-icons/bs'
 import {FiLogOut} from 'react-icons/fi'
 
 import {
@@ -35,12 +34,12 @@ const Header = props => {
           alt="website logo"
         />
         <SmallScreenNavMenu>
-          <FaMoon />
-          <GiHamburgerMenu />
+          <BsMoon />
+          <BsBrightnessHigh />
           <FiLogOut />
         </SmallScreenNavMenu>
         <LargeScreenNavMenu>
-          <FaMoon />
+          <BsMoon />
           <ProfileImage
             src="https://assets.ccbp.in/frontend/react-js/nxt-watch-profile-img.png"
             alt="profile"
